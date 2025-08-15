@@ -1,0 +1,1 @@
+# rickyroure-Programacio_II_Ricardo_Roure_2025
