@@ -1,4 +1,4 @@
-
+--------------------ejercicio 1----------------------------
 package estudiante;
 
 public class Estudiante {
@@ -41,4 +41,157 @@ public class Estudiante {
             calificacion -= puntos;
         }
     }
+}
+---------------------ejercicio 2--------------------------------------
+package mascotas;
+
+public class Mascotas {
+    private String nombre;
+    private String especie;
+    private int edad;
+
+    public void setNombre(String nombre){
+        if (nombre != null){
+        this.nombre = nombre;
+        }
+    }
+    public void setEspecie(String especie){
+        if (especie != null){
+        this.especie = especie;
+        }
+    }
+
+    public void setEdad(int edad) {
+        if (edad >=0){
+        this.edad = edad;
+        }
+    }
+    
+   public void mostrarInfo(){
+       System.out.println("Nombre: " + nombre + "; Especie: " + especie +
+                   "; Edad: " + edad);
+   }
+   
+   public void cumplirAnios(){
+       edad ++;
+   }
+    
+}
+------------------------ejercicio 3------------------------------------
+package libro;
+import java.time.LocalDate;
+            
+public class Libro {
+    private String titulo;
+    private String autor;
+    private int anioPublicacion;
+    
+    LocalDate fechaActual = LocalDate.now();
+    int anioActual = fechaActual.getYear();
+
+    public Libro (String titulo, String autor){
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getAnioPublicacion() {
+        return anioPublicacion;
+    }
+----------------------------ejercicio 5-------------------------------
+package naveespacial;
+
+public class NaveEspacial {
+    private String nombre;
+    private double combustible;
+
+    public NaveEspacial(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    private boolean verificarCombustible(){
+        if(combustible > 0){
+            return true;
+        }else{
+            System.out.println("Combustible insuficiente");
+            return false;
+        }
+    }
+    
+    public void despegar(){
+        if (verificarCombustible()){
+        System.out.println("Despegando.......");
+        }
+    }
+    public void avanzar(int distancia){
+        double consumo = 0.05;
+        double combNecesario = distancia * consumo;
+        if(combustible > combNecesario){
+            System.out.println("Avanzando " + distancia + " kms.");
+            combustible -=combNecesario;
+        }else{
+            System.out.println("Combustible insuficiente para avanzar esa distancia");
+        }
+    }
+    
+    public void recargarCombustible(double cantidad){
+        if(cantidad < 0){
+            System.out.println("Cantidad incorrecta");
+        }else if((combustible + cantidad) > 50){
+            System.out.println("La cantidad ingresada hace superar el limite de 50 litros");
+            mostrarEstado();
+        }else{
+            combustible += cantidad;
+        }
+         
+    }
+    
+    public void mostrarEstado(){
+        System.out.println("Nombre: " + nombre + "; Combustible disponible: " +
+                    combustible);
+    }
+    
+}
+    public void setAnioPublicacion(int anioPublicacion) {
+        if ((anioPublicacion > anioActual) || (anioPublicacion < 0)){
+            System.out.println("Fecha de publicacion mal ingresada");
+        }else{
+            this.anioPublicacion = anioPublicacion;
+        }
+    }
+}
+-----------------------------------ejercicio 4---------------------------------------------
+package gallinas;
+
+public class Gallina {
+    private int IdGallina;
+    private int edad; //Edad expresado en numero de semanas
+    private int huevosPuestos;
+    
+    public Gallina(int IdGallina, int edad, int huevosPuestos) {
+        this.IdGallina = IdGallina;
+        this.edad = edad;
+        this.huevosPuestos = huevosPuestos;
+    }
+    
+    public void ponerHuevo() {
+        huevosPuestos ++;
+    }
+    
+    public void envejecer(){
+        edad ++;
+    }
+    
+    public void mostrarEstado(){
+        System.out.println("Id: " + IdGallina + ": Edad (semanas): " + edad +
+                    "; Huevos puestos: " + huevosPuestos);
+    }
+                
 }
