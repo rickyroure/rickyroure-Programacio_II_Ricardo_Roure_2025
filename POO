@@ -1,1 +1,44 @@
 
+package estudiante;
+
+public class Estudiante {
+    private String nombre;
+    private String apellido;
+    private String curso;
+    private double calificacion;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+            
+    public void mostrarInfo(){
+        System.out.println("Nombre: " + nombre + "; Apellido: " + apellido +
+                    "; Curso: " + curso + "; Calificacion: " + calificacion);
+    }
+    
+    public void aumentarCalificacion(double puntos){
+        if((calificacion + puntos) > 10){
+            System.out.println("Ha alcanzado el maximo de calificacion");
+            calificacion = 10;
+        }else{
+            calificacion += puntos;
+        }
+    }
+    
+    public void bajarCalificacion(double puntos){
+        if((calificacion - puntos) < 0){
+            System.out.println("Ha llegado al minimo de calificacion");    
+            calificacion = 0;
+        }else{
+            calificacion -= puntos;
+        }
+    }
+}
